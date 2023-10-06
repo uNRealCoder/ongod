@@ -1,6 +1,6 @@
 # onGod.js
 
-onGod.js is a light-weight (and lightheared)JavaScript library that enables the capture of Generation, Operation or Deletion of DOM elements. Simply put, it triggers an 'ongod' event whenever a child node is created, edited or removed. It uses the Mutation Observer which can be seen in the event.
+onGod.js is a light-weight (and lightheared)JavaScript library that enables the capture of Generation, Operation or Deletion of DOM elements. Simply put, it triggers an 'ongod' event whenever a child node is created, edited or removed. It uses the Mutation Observer which can be seen in the event. This thing was created < 9 hours, use at your own risk.
 
 ## Usage
 
