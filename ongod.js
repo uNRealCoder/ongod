@@ -101,19 +101,6 @@ let ongodInit = (function () {
     }
 
     window.addEventListener('load', reloadGodEvent);
-
-    // Store a reference to the original addEventListener method
-    // const originalAddEventListener = EventTarget.prototype.addEventListener;
-
-    // function customAddEventListener(type, listener, options) {
-    //     if (type === CUSTOM_EVENT_ONGOD) {
-    //         reloadGodEventDebounced();
-    //     }
-    //     originalAddEventListener.call(this, type, listener, options);
-    // }
-    // // Override the addEventListener method with your custom function
-    // EventTarget.prototype.addEventListener = customAddEventListener;
-    // console.warn("ongod.js will wrap over all event listeners. No action Needed. Do not wrap addEventListener after ongod.js is loaded.")
-    // return reloadGodEvent
+    return reloadGodEvent;
 })();
 
