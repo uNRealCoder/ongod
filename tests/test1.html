@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Test 1</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="Test 1" />
+    <meta name="keywords" content="Test 1" />
+    <meta name="author" content="NR" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../ongod.js" type="text/javascript"></script>
+    <script>
+        //Add 5 elements to div with id test1
+        //Run on Document Ready
+        function loadFunction() {
+            //TEST 1
+            for (var i = 0; i < 10; i++) {
+                var divChild = document.createElement("div");
+                divChild.innerHTML = "Test 1_" + i;
+                document.getElementById("test1").appendChild(divChild);
+                console.log("Added Test 1_" + i + " to div with id test1")
+            }
+            //Execute the function test2 after 1 second
+            //TEST 2 
+            setTimeout(function () {
+                for (var i = 0; i < 4; i++) {
+                    var divChild = document.createElement("div");
+                    divChild.innerHTML = "Test 2_" + i;
+                    document.getElementById("test2").appendChild(divChild);
+                    console.log("Added Test 2_" + i + " to div with id test2")
+                }
+            }, 2000);
+            //TEST 3
+            //Execute the function test3 after 3 seconds
+            setTimeout(function () {
+                for (var i = 0; i < 3; i++) {
+                    var divChild = document.createElement("div");
+                    divChild.id = "test3Inner_" + i;
+                    divChild.innerHTML = "Test 3_" + i;
+                    divChild.setAttribute("ongod", "test3Inner(event)");
+                    document.getElementById("test3").appendChild(divChild);
+                    console.log("Added Test 3_" + i + " to div with id test3")
+
+                }
+            }, 0);
+            //Add 2 elements to div created with above function
+            setTimeout(function () {
+                for (var i = 0; i < 2; i++) {
+                    for (var j = 0; j < 3; j++) {
+                        var divChild = document.createElement("div");
+                        divChild.innerHTML = "Test 3 Inner_" + i + "_" + j;
+                        document.getElementById("test3Inner_" + i).appendChild(divChild);
+                        console.log("Added Test 3 Inner_" + i + "_" + j + " to div with id test3Inner_"+i)
+                    }
+                }
+            }, 0);
+
+            //TEST4
+            //Execute the function test4 after 2 seconds
+            //Create 4 elements inside div with id test4
+            //Each element should have an ongod attribute
+            //Add 2 elements to each of the element.
+
+            setTimeout(function () {
+                for (var i = 0; i < 4; i++) {
+                    var divChild = document.createElement("div");
+                    divChild.id = "test4Inner_" + i;
+                    divChild.innerHTML = "Test 4_" + i;
+                    divChild.addEventListener("ongod", function(e){test4Inner(e)});
+                    divChild.setAttribute("ongod", "test4Inner(event)");
+                    document.getElementById("test4").appendChild(divChild);
+                    console.log("Added Test 4_" + i + " to div with id test4")
+                    onGodConfig.reload();
+                }
+            }, 0);
+
+            setTimeout(function(){
+                //Add 2 elements all the elements created above
+                for (var i = 0; i < 4; i++) {
+                    for (var j = 0; j < 2; j++) {
+                        var divChild = document.createElement("div");
+                        divChild.innerHTML = "Test 4 Inner_" + i + "_" + j;
+                        document.getElementById("test4Inner_" + i).appendChild(divChild);
+                        console.log("Added Test 4 Inner_" + i + "_" + j + " to div with id test4Inner_" + i)
+                    } 
+                }
+            },0);
+        }
+        function test1(event) {
+            console.log("Test 1 -Event Called.", event.detail.mutation.type);
+        }
+        function test2(event) {
+            console.log("Test 2 - Event Called", event.detail.mutation.type);
+        }
+        function test3(event) {
+            console.log("Test 3 - Event Called", event.detail.mutation.type);
+        }
+        function test3Inner(event) {
+            console.log("Test 3 Inner - Event Called", event.detail.mutation.type);
+        }
+        function test4(event) {
+            console.log("Test 4 - Event Called", event.detail.mutation.type);
+        }
+        function test4Inner(event) {
+            console.log("Test 4 Inner - Event Called", event.detail.mutation.type);
+        }
+    </script>
+</head>
+
+<body onload="loadFunction()">
+    <div>
+        <!--Enter random elements-->
+        <div id="test1" ongod="test1(event);"></div>
+        <div id="test2" ongod="test2(event)"></div>
+        <div id="test3" ongod="test3(event)"></div>
+        <div id="test4"></div>
+    </div>
+    <h1>Test 1</h1>
+    <p>Test 1</p>
+</body>
+
+</html>

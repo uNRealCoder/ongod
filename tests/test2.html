@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test 1</title>
+        <meta charset="utf-8" />
+        <meta name="description" content="Test 1" />
+        <meta name="keywords" content="Test 1" />
+        <meta name="author" content="NR" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="../ongod.js" type="text/javascript"></script>
+        <script>
+            //Gemerate random string
+            function randomString(length) {
+                var text = "";
+                var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                for (var i = 0; i < length; i++)
+                    text += possible.charAt(Math.floor(Math.random() * possible.length));
+                return text;
+            }
+            //Add random string to div which was clicked
+            function test3Inner(event) {
+                event.target.innerHTML = randomString(10);
+            }
+            function onGodEvent(event){
+                console.log(event.target)
+                console.log(event.currentTarget)
+                console.log('ongod')
+            }
+        </script>
+    </head>
+    <body ongod = "onGodEvent(event)">
+        <div id="test1" onclick="test3Inner(event)">
+            <div >
+                <ul>
+                    <li>Test 1_1_1</li>
+                    <li>Test 1_1_2</li>
+                    <li>Test 1_1_3</li>
+                    <li>Test 1_1_4</li>
+                    <li>Test 1_1_5</li>
+                    <li>Test 1_1_6</li>
+                    <li>Test 1_1_7</li>
+                    <li>Test 1_1_8</li>
+                    <li>Test 1_1_9</li>
+                </ul>ss 
+            </div>
+            <div>Test 1_1</div>
+            <div>Test 1_2</div>
+            <div>Test 1_3</div>
+            <div>Test 1_4</div>
+            <div>Test 1_5</div>
+            <div>Test 1_6</div>
+            <div>Test 1_7</div>
+            <div>Test 1_8</div>
+            <div>Test 1_9</div>
+        </div>
+    </body>
+</html>
